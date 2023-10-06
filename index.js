@@ -9,12 +9,9 @@ const port = process.env.PORT;
 const app = express();
 app.use(cors());  
 app.use(express.json());
-app.use('/', (req, res)=>{
-  res.send("App is working");
-  
-})
+
 app.use("/api/men", Menrouter);
-app.use("/api", studentRouter);
+app.use("/api/student", studentRouter);
 connectDB();
 
 app.listen(port, () => {
