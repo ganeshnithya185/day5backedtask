@@ -5,9 +5,11 @@ dotenv.config();
 const connectDB = async () => {
   try {
     const mongoURL = process.env.MONGOOSECONNECTIONSTRING;
-    const connection = await mongoose.connect(mongoURL);
+    await mongoose
+      .connect(mongoURL)
+      .then(() => console.log("Connected to Mongodb"));
 
-    return connection;
+  
   } catch (error) {
     console.error(error);
   }
